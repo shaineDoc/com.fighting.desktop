@@ -35,25 +35,41 @@ public class Arena {
         }
         System.out.println("Отлично! Ты выбрал " + playerFighter.getName() + "\n Получить базовую информацию" +
                 " о персонаже c информацией об атаках ?");
-
-        if (scanner.nextLine().equalsIgnoreCase("да")) {
+            usersChoice = scanner.nextLine();
+        if (usersChoice.equalsIgnoreCase("да") || usersChoice.equalsIgnoreCase("yes")) {
             playerFighter.getInfo();
             ArrayList<String> playersAttack = playerFighter.listForAttack();
             System.out.println("\nАтаки персонажа :");
             for (String attacks : playersAttack) {
                 System.out.println(attacks);
             }
-
         }
-
         System.out.println("Добро пожаловать на жеребьёвку! Сейчас мы узнаем, кто атакует первым !");
-        Arena.theDraw();
-        if (Arena.theDraw() == 1) {
-            System.out.println("Первым атакует " + playerFighter.getName() );
+           int draw = Arena.theDraw();
+        if (draw == 1) {
+            System.out.println("Первым атакует " + playerFighter.getName());
+
         } else {
             System.out.println("Первым атакует " + randomFighter.getName() + ", приготовься!");
         }
+            while (true) {
+                if (draw == 1) {
+                    System.out.println("Твой ход! Выбери атаку из доступных:");
+                    ArrayList<String> playerAttacks = playerFighter.listForAttack();
+                    for (int i =0; i < playerAttacks.size(); i++) {
+                        System.out.println((i +1) + " " + playerAttacks.get(i));
 
+                    }
+                    scanner.nextLine();
+
+                } else  if (draw == 0) {
+                    randomFighter.randomAttack();
+                    playerFighter.setHealth(playerFighter.getHealth() - randomFighter.getDamage());
+                    System.out.println(playerFighter.getName() + " получил " + randomFighter.getDamage() + " урона." +
+                            " Остаток жизни " + playerFighter.getHealth());
+                    draw = 1;
+                }
+            }
 
     }
 

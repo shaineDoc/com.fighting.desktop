@@ -39,7 +39,7 @@ public class NinjaSaske extends Ninja {
     public void attack1() {
         String attack = nameAttack.get(0);
         System.out.println("САСКЕ НАНОСИТ УДАР");
-        this.setDamage(100 + (50 * random.nextDouble()));
+        this.setDamage(100 + (random.nextInt(81)));
         System.out.println(this.getName() + this.getDamage() + " УРОНА ПРОТИВНИКУ ПРИМЕНИВ " + attack);
         this.setChakra(this.getChakra() - 300);
         System.out.println("ОСТАТОК ЧАКРЫ " + this.getChakra());
@@ -48,7 +48,7 @@ public class NinjaSaske extends Ninja {
     public void attack2() {
         String attack = nameAttack.get(1);
         System.out.println("САСКЕ НАНОСИТ УДАР");
-        this.setDamage(150 + (50 * random.nextDouble()));
+        this.setDamage(150 + (random.nextInt(81)));
         System.out.println(this.getName() + this.getDamage() + " УРОНА ПРОТИВНИКУ ПРИМЕНИВ " + attack);
         this.setChakra(this.getChakra() - 400);
         System.out.println("ОСТАТОК ЧАКРЫ " + this.getChakra());
@@ -58,7 +58,7 @@ public class NinjaSaske extends Ninja {
     public void attack3() {
         String attack = nameAttack.get(2);
         System.out.println("САСКЕ НАНОСИТ УДАР");
-        this.setDamage(200 + (50 * random.nextDouble()));
+        this.setDamage(200 + (random.nextInt(81)));
         System.out.println(this.getName() + this.getDamage() + " УРОНА ПРОТИВНИКУ ПРИМЕНИВ " + attack);
         this.setChakra(this.getChakra() - 550);
         System.out.println("ОСТАТОК ЧАКРЫ " + this.getChakra());
@@ -72,6 +72,11 @@ public class NinjaSaske extends Ninja {
         this.setChakra(getChakra() + 1500);
         System.out.println(this.getName() + " активировал печать. Следующая атака наносит двойной урон " +
                 "\n Частично восполнены HP и чакра");
+    }
+
+    @Override
+    public void randomAttack() {
+        super.randomAttack();
     }
 }
 

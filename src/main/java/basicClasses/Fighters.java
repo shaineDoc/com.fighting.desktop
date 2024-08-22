@@ -4,8 +4,8 @@ package main.java.basicClasses;
 
 public abstract class Fighters {
     private String name;
-    private double health;
-    private double damage;
+    private int health;
+    private int damage;
     private String nameOfTheBaseAbility;
     public abstract void attack1 ();
     public abstract void attack2 ();
@@ -21,19 +21,19 @@ public abstract class Fighters {
         this.name = name;
     }
 
-    public double getHealth() {
+    public int getHealth() {
         return health;
     }
 
-    public void setHealth(double health) {
+    public void setHealth(int health) {
         this.health = health;
     }
 
-    public double getDamage() {
+    public int getDamage() {
         return damage;
     }
 
-    public void setDamage(double damage) {
+    public void setDamage(int damage) {
         this.damage = damage;
     }
 

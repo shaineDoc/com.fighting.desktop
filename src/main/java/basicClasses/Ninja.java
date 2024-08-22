@@ -1,15 +1,17 @@
 package main.java.basicClasses;
 
 import java.util.ArrayList;
+import java.util.Random;
 
-public abstract class Ninja extends Fighters{
-    private double chakra;
+public abstract class Ninja extends Fighters {
+    private int chakra;
+    Random random;
 
-    public double getChakra() {
+    public int getChakra() {
         return chakra;
     }
 
-    public void setChakra(double chakra) {
+    public void setChakra(int chakra) {
         this.chakra = chakra;
     }
 
@@ -27,11 +29,16 @@ public abstract class Ninja extends Fighters{
     @Override
     public void attack3() {
     }
+
     public void something() {
     }
 
     @Override
     public void getInfo() {
+
+    }
+
+    public void randomAttack() {
 
     }
 }
