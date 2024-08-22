@@ -1,6 +1,8 @@
 package main.java.basicClasses;
 
-public class Ninja extends Fighters{
+import java.util.ArrayList;
+
+public abstract class Ninja extends Fighters{
     private double chakra;
 
     public double getChakra() {
@@ -11,19 +13,21 @@ public class Ninja extends Fighters{
         this.chakra = chakra;
     }
 
+    public abstract ArrayList<String> listForAttack();
+
     @Override
-    public String attack1() {
-        return "";
+    public void attack1() {
     }
 
     @Override
-    public String attack2() {
-        return "";
+    public void attack2() {
+
     }
 
     @Override
-    public String attack3() {
-        return "";
+    public void attack3() {
+    }
+    public void something() {
     }
 
     @Override

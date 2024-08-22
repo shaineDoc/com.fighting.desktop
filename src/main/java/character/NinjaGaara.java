@@ -2,19 +2,25 @@ package main.java.character;
 
 import main.java.basicClasses.Ninja;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class NinjaGaara extends Ninja {
     Random random = new Random();
+    private ArrayList<String> nameAttack;
 
     public NinjaGaara() {
         this.setHealth(1000);
         this.setChakra(5000);
         this.setName("ДЖЕНЧУРИКИ ГААРА");
+        nameAttack = new ArrayList<>();
+        nameAttack.add("ПЕСЧАНЫЕ КОЛЬЯ");
+        nameAttack.add("ПЕСЧАНЫЕ ТЕСКИ");
+        nameAttack.add("ПЕСЧАНАЯ РУКА");
     }
 
-    public void listForAttackGaara() {
-        System.out.println("ДОСТУПНЫЕ АТАКИ: \n ПЕСЧАНЫЕ КОЛЬЯ \n ПЕСЧАНЫЕ ТЕСКИ \n ПЕСЧАНАЯ РУКА");
+    public ArrayList<String> listForAttack() {
+        return nameAttack;
     }
 
     public void getInfo() {
@@ -24,35 +30,41 @@ public class NinjaGaara extends Ninja {
         System.out.println("Объём чакры персонажа " + this.getChakra());
 
     }
+
     // У каждого персонажа по 3 атаки :
-    public String attack1() {
-        String nameAttack = "ПЕСЧАНЫЕ КОЛЬЯ";
+    public void attack1() {
+        String attack = nameAttack.get(0);
         System.out.println("ГААРА НАНОСИТ УДАР");
         this.setDamage(100 + (50 * random.nextDouble()));
-        System.out.println("ГААРА НАНЁС " + this.getDamage() + " УРОНА ПРОТИВНИКУ ПРИМЕНИВ " + nameAttack);
+        System.out.println("ГААРА НАНЁС " + this.getDamage() + " УРОНА ПРОТИВНИКУ ПРИМЕНИВ " + attack);
         this.setChakra(this.getChakra() - 300);
         System.out.println("ОСТАТОК ЧАКРЫ " + this.getChakra());
-        return nameAttack;
     }
 
-    public String attack2() {
-        String nameAttack = "ПЕСЧАНЫЕ ТЕСКИ";
+    public void attack2() {
+        String attack = nameAttack.get(1);
         System.out.println("ГААРА НАНОСИТ УДАР");
         this.setDamage(150 + (50 * random.nextDouble()));
-        System.out.println("ГААРА НАНЁС " + this.getDamage() + " УРОНА ПРОТИВНИКУ ПРИМЕНИВ " + nameAttack);
+        System.out.println("ГААРА НАНЁС " + this.getDamage() + " УРОНА ПРОТИВНИКУ ПРИМЕНИВ " + attack);
         this.setChakra(this.getChakra() - 480);
         System.out.println("ОСТАТОК ЧАКРЫ " + this.getChakra());
-        return nameAttack;
     }
 
-    public String attack3() {
-        String nameAttack = "ПЕСЧАНАЯ РУКА";
+    public void attack3() {
+        String attack = nameAttack.get(2);
         System.out.println("ГААРА НАНОСИТ УДАР");
         this.setDamage(200 + (50 * random.nextDouble()));
-        System.out.println("ГААРА НАНЁС " + this.getDamage() + " УРОНА ПРОТИВНИКУ ПРИМЕНИВ " + nameAttack);
+        System.out.println("ГААРА НАНЁС " + this.getDamage() + " УРОНА ПРОТИВНИКУ ПРИМЕНИВ " + attack);
         this.setChakra(this.getChakra() - 500);
         System.out.println("ОСТАТОК ЧАКРЫ " + this.getChakra());
-        return nameAttack;
+    }
+    // при достижении критического порога HP происходит чистичная регенерация
+    public void something() {
+        System.out.println("Активация ярости");
+        this.setHealth(getHealth() + 500);
+        this.setChakra(getChakra() + 1500);
+        System.out.println(this.getName() + " впадает в ярость! Следующие атаки противника наносят в 2 раза меньше" +
+                "урона. \n Частично восполнены HP и чакра");
     }
 
 }

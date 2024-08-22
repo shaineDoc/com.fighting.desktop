@@ -12,18 +12,18 @@ public class Warrior  extends Fighters{
     }
 
     @Override
-    public String attack1() {
-        return "";
+    public void attack1() {
+
     }
 
     @Override
-    public String attack2() {
-        return "";
+    public void attack2() {
+
     }
 
     @Override
-    public String attack3() {
-        return "";
+    public void attack3() {
+
     }
 
     @Override

@@ -4,6 +4,7 @@ import main.java.basicClasses.Ninja;
 import main.java.character.NinjaGaara;
 import main.java.character.NinjaSaske;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Arena {
@@ -33,19 +34,27 @@ public class Arena {
             }
         }
         System.out.println("Отлично! Ты выбрал " + playerFighter.getName() + "\n Получить базовую информацию" +
-                " о персонаже ?");
+                " о персонаже c информацией об атаках ?");
 
         if (scanner.nextLine().equalsIgnoreCase("да")) {
             playerFighter.getInfo();
+            ArrayList<String> playersAttack = playerFighter.listForAttack();
+            System.out.println("\nАтаки персонажа :");
+            for (String attacks : playersAttack) {
+                System.out.println(attacks);
+            }
+
         }
 
         System.out.println("Добро пожаловать на жеребьёвку! Сейчас мы узнаем, кто атакует первым !");
         Arena.theDraw();
         if (Arena.theDraw() == 1) {
-            System.out.println("Первым атакует " + playerFighter.getName() + " твои действия ?");
+            System.out.println("Первым атакует " + playerFighter.getName() );
         } else {
             System.out.println("Первым атакует " + randomFighter.getName() + ", приготовься!");
         }
+
+
     }
 
 }

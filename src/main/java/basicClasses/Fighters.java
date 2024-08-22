@@ -1,13 +1,15 @@
 package main.java.basicClasses;
 
+
+
 public abstract class Fighters {
     private String name;
     private double health;
     private double damage;
     private String nameOfTheBaseAbility;
-    public abstract String attack1 ();
-    public abstract String attack2 ();
-    public abstract String attack3 ();
+    public abstract void attack1 ();
+    public abstract void attack2 ();
+    public abstract void attack3 ();
     public abstract void getInfo();
 
 
